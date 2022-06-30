@@ -589,6 +589,26 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-1.0.0.tgz#91c560df2ed8d9700e4c7ed4ac21a3a322c9d975"
   integrity sha512-RkYG5KiGNX0fJ5YoI0f4Wfq2Yo74D25Hru4fxTOioYdQvHBxcrrtTTyT5Ozzh2ejcNrhFy7IEts2WyEY7yi5yw==
 
+"@datadog/browser-core@4.14.0":
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-4.14.0.tgz#52c4505338b333b0f27c834563bfa0318a136132"
+  integrity sha512-ogtZSxHCi/Uh2V4fe88rlXHPeHy4oYbAzuCjDGn60gVECL4US6xYJ4AVi4nPAvkQun8KaxUQdYMfeohcGBMrYQ==
+
+"@datadog/browser-rum-core@4.14.0":
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum-core/-/browser-rum-core-4.14.0.tgz#004c49fc5c008dc404bbaa6e4c104901299fb61d"
+  integrity sha512-BoO3Q9AyNd5NahnjKWPBt+HqMCIp5EskirGp91KGXUYFsXROsTu0DqpQlr70CVwqPCbKUhG219P+AR7vHHaPQw==
+  dependencies:
+    "@datadog/browser-core" "4.14.0"
+
+"@datadog/browser-rum@^4.14.0":
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/@datadog/browser-rum/-/browser-rum-4.14.0.tgz#8f31cae52a1b09eff56d533ccafed49c6386d628"
+  integrity sha512-C4vl+lo6XugpcydZb4Fo+iRBs04D8+Z3k+aXcnbGkRBFKvr0ZXY1Z8ZaC60ZHDiiJq2WzmphxVvm0Q6UI5R0YQ==
+  dependencies:
+    "@datadog/browser-core" "4.14.0"
+    "@datadog/browser-rum-core" "4.14.0"
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@endemolshinegroup/cosmiconfig-typescript-loader/-/cosmiconfig-typescript-loader-3.0.2.tgz#eea4635828dde372838b0909693ebd9aafeec22d"
