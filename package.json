@@ -11,7 +11,8 @@
     "dev": "turbo run dev",
     "start": "turbo run start",
     "types": "turbo run types",
-    "prettier-fix": "prettier --write ."
+    "prettier-fix": "prettier --write .",
+    "docker-build": "turbo run build && turbo run start"
   },
   "devDependencies": {
     "husky": "^7.0.4",
