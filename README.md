@@ -2,7 +2,7 @@
 
 This is a NextJS application that relies on [Storedog - Backend](https://github.com/DataDog/storedog-backend) for all API requests.
 
-## Run minimal version locally
+## Local dev
 
 > To run a minimal version of Next.js Commerce you can start with the default local provider `@vercel/commerce-local` that has disabled all features (cart, auth) and use static files for the backend.
 
@@ -12,6 +12,13 @@ cp ./packages/local/.env.template ./site/.env.local # copy the default 'local' c
 yarn # install packages
 yarn dev # start app
 ```
+
+Alternatively, you can run the entire app (frontend + backend) locally via Docker.
+
+1. Start the backend by cloning the [Storedog - Backend](https://github.com/DataDog/storedog-backend) repo and running `docker-compose up`
+2. Start the frontend by cloning this repo and running the same command: `docker-compose up`
+
+The services are linked by a shared network defined `storedog-backend_storedog-net`.
 
 > If you encounter any problems while installing and running for the first time, please see the Troubleshoot section
 
@@ -104,5 +111,17 @@ The error usually occurs when running yarn dev inside of the `/site/` folder aft
 In order to fix this, run `yarn dev` in the monorepo root folder first.
 
 > Using `yarn dev` from the root is recommended for developing, which will run watch mode on all packages.
+
+</details>
+
+<details>
+<summary>When run locally I get `Error: Spree API cannot be reached'`</summary>
+
+The error usually occurs when the backend containers are not yet fully healthy, but the frontend has already started making API requests.
+
+In the docker logs output for storedog-backend, check to see if the backend has fully started. You should see the following log for the `web` container:
+```
+web_1       | [1] * Listening on http://0.0.0.0:4000
+```
 
 </details>
