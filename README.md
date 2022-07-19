@@ -18,21 +18,9 @@ Alternatively, you can run the entire app (frontend + backend) locally via Docke
 1. Start the backend by cloning the [Storedog - Backend](https://github.com/DataDog/storedog-backend) repo and running `docker-compose up`
 2. Start the frontend by cloning this repo and running the same command: `docker-compose up`
 
-The services are linked by a shared network defined `storedog-backend_storedog-net`.
+The services are linked by a shared network `storedog-backend_storedog-net` which is defined in the [Storedog - Backend](https://github.com/DataDog/storedog-backend) `docker-compose.yml` file.
 
 > If you encounter any problems while installing and running for the first time, please see the Troubleshoot section
-
-## Features
-
-- Performant by default
-- SEO Ready
-- Internationalization
-- Responsive
-- UI Components
-- Theming
-- Standardized Data Hooks
-- Integrations - Integrate seamlessly with the most common ecommerce platforms.
-- Dark Mode Support
 
 ## Considerations
 
