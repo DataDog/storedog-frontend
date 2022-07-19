@@ -4,8 +4,6 @@ services:
     build:
       context: .
     command: yarn dev
-    volumes:
-      - "./site:/storedog-app/site"
     ports:
       - 3000:3000
     networks:

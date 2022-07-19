@@ -10,6 +10,7 @@ import validateImagesQuality from './utils/validations/validate-images-quality'
 
 const isomorphicConfig = {
   apiHost: process.env.NEXT_PUBLIC_SPREE_API_HOST,
+  clientHost: process.env.NEXT_PUBLIC_SPREE_CLIENT_HOST,
   defaultLocale: process.env.NEXT_PUBLIC_SPREE_DEFAULT_LOCALE,
   cartCookieName: process.env.NEXT_PUBLIC_SPREE_CART_COOKIE_NAME,
   cartCookieExpire: validateCookieExpire(
@@ -53,6 +54,7 @@ export default forceIsomorphicConfigValues(
   [],
   [
     'apiHost',
+    'clientHost',
     'defaultLocale',
     'cartCookieName',
     'cartCookieExpire',

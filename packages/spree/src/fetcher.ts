@@ -19,7 +19,7 @@ import RefreshTokenError from './errors/RefreshTokenError'
 import prettyPrintSpreeSdkErrors from './utils/pretty-print-spree-sdk-errors'
 
 const client = makeClient({
-  host: requireConfigValue('apiHost') as string,
+  host: requireConfigValue('clientHost') as string,
   createFetcher: (fetcherOptions) => {
     return createCustomizedFetchFetcher({
       fetch: globalThis.fetch,
