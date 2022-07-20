@@ -12,6 +12,21 @@ import PaymentWidget from '../PaymentWidget'
 import s from './CheckoutSidebarView.module.css'
 import { useCheckoutContext } from '../context'
 
+
+const onMockCheckout = async () => {
+
+  const sleep = (ms) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  };
+
+  await sleep(3000);
+  return new Promise((resolve, reject) => {
+    resolve(true);
+  });
+}
+
 const CheckoutSidebarView: FC = () => {
   const [loadingSubmit, setLoadingSubmit] = useState(false)
   const { setSidebarView, closeSidebar } = useUI()
@@ -24,13 +39,13 @@ const CheckoutSidebarView: FC = () => {
       setLoadingSubmit(true)
       event.preventDefault()
 
-      await onCheckout()
+      await onMockCheckout()
       clearCheckoutFields()
       setLoadingSubmit(false)
       refreshCart()
       closeSidebar()
-    } catch {
-      // TODO - handle error UI here.
+    } catch(e) {
+      console.log(e);
       setLoadingSubmit(false)
     }
   }
@@ -108,7 +123,6 @@ const CheckoutSidebarView: FC = () => {
           <Button
             type="submit"
             width="100%"
-            disabled={!checkoutData?.hasPayment || !checkoutData?.hasShipping}
             loading={loadingSubmit}
           >
             Confirm Purchase

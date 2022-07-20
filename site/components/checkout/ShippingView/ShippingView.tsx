@@ -24,22 +24,22 @@ interface Form extends HTMLFormElement {
 
 const ShippingView: FC = () => {
   const { setSidebarView } = useUI()
-  const addAddress = useAddAddress()
+  //const addAddress = useAddAddress()
 
   async function handleSubmit(event: React.ChangeEvent<Form>) {
     event.preventDefault()
 
-    await addAddress({
-      type: event.target.type.value,
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      company: event.target.company.value,
-      streetNumber: event.target.streetNumber.value,
-      apartments: event.target.streetNumber.value,
-      zipCode: event.target.zipCode.value,
-      city: event.target.city.value,
-      country: event.target.country.value,
-    })
+    // await addAddress({
+    //   type: event.target.type.value,
+    //   firstName: event.target.firstName.value,
+    //   lastName: event.target.lastName.value,
+    //   company: event.target.company.value,
+    //   streetNumber: event.target.streetNumber.value,
+    //   apartments: event.target.streetNumber.value,
+    //   zipCode: event.target.zipCode.value,
+    //   city: event.target.city.value,
+    //   country: event.target.country.value,
+    // })
 
     setSidebarView('CHECKOUT_VIEW')
   }
