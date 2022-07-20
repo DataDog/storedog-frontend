@@ -21,7 +21,7 @@ const onMockCheckout = async () => {
     });
   };
 
-  await sleep(3000);
+  await sleep(2000);
   return new Promise((resolve, reject) => {
     resolve(true);
   });
@@ -42,8 +42,8 @@ const CheckoutSidebarView: FC = () => {
       await onMockCheckout()
       clearCheckoutFields()
       setLoadingSubmit(false)
-      refreshCart()
-      closeSidebar()
+      refreshCart() // This doesn't seem to work
+      setSidebarView('ORDER_CONFIRM_VIEW')
     } catch(e) {
       console.log(e);
       setLoadingSubmit(false)

@@ -12,6 +12,7 @@ import { useAcceptCookies } from '@lib/hooks/useAcceptCookies'
 import { Sidebar, Button, LoadingDots } from '@components/ui'
 import PaymentMethodView from '@components/checkout/PaymentMethodView'
 import CheckoutSidebarView from '@components/checkout/CheckoutSidebarView'
+import OrderConfirmView from '@components/checkout/OrderConfirmView'
 import { CheckoutProvider } from '@components/checkout/context'
 import { MenuSidebarView } from '@components/common/UserNav'
 import type { Page } from '@commerce/types/page'
@@ -87,6 +88,7 @@ const SidebarView: React.FC<{
       {sidebarView === 'PAYMENT_VIEW' && <PaymentMethodView />}
       {sidebarView === 'CHECKOUT_VIEW' && <CheckoutSidebarView />}
       {sidebarView === 'MOBILE_MENU_VIEW' && <MenuSidebarView links={links} />}
+      {sidebarView === 'ORDER_CONFIRM_VIEW' && <OrderConfirmView />}
     </Sidebar>
   )
 }
