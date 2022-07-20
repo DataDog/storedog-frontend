@@ -15,6 +15,7 @@ import CheckoutSidebarView from '@components/checkout/CheckoutSidebarView'
 import OrderConfirmView from '@components/checkout/OrderConfirmView'
 import { CheckoutProvider } from '@components/checkout/context'
 import { MenuSidebarView } from '@components/common/UserNav'
+import Discount from "@components/common/Discount"
 import type { Page } from '@commerce/types/page'
 import type { Category } from '@commerce/types/site'
 import type { Link as LinkProps } from '../UserNav/MenuSidebarView'
@@ -119,7 +120,9 @@ const Layout: React.FC<Props> = ({
     <CommerceProvider locale={locale}>
       <div className={cn(s.root)}>
         <Navbar links={navBarlinks} />
+        <Discount></Discount>
         <main className="fit">{children}</main>
+        
         <Footer pages={pageProps.pages} />
         <ModalUI />
         <CheckoutProvider>
