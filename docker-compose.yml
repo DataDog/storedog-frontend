@@ -4,6 +4,11 @@ services:
     build:
       context: .
     command: yarn dev
+    environment:
+      - ADS_PORT=${ADS_PORT}
+      - DISCOUNTS_PORT=${DISCOUNTS_PORT}
+      - ADS_ROUTE=${ADS_ROUTE}
+      - DISCOUNTS_ROUTE=${DISCOUNTS_ROUTE}
     volumes:
       - "./site:/storedog-app/site"
     ports:
