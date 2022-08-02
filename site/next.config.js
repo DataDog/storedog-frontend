@@ -10,6 +10,9 @@ const isVendure = false
 
 module.exports = withCommerceConfig({
   commerce,
+  images: {
+    domains: [process.env.NEXT_PUBLIC_SPREE_ALLOWED_IMAGE_DOMAIN],
+  },
   i18n: {
     locales: ['en-US', 'es'],
     defaultLocale: 'en-US',

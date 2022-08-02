@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function Discount() {
+function Ad() {
   const [data, setData] = React.useState(null)
   const [isLoading, setLoading] = React.useState(false)
 
@@ -10,31 +10,34 @@ function Discount() {
 
   React.useEffect(() => {
     setLoading(true)
-    fetch('http://localhost:2814/discount')
+    fetch('http://localhost:7676/ads')
       .then((res) => res.json())
       .then((data) => {
         const index = getRandomArbitrary(0,data.length);
-        setData(data[index]["code"])
+        setData(data[index])
         setLoading(false)
       })
   }, [])
 
   if (isLoading) return (
     <div className="flex flex-row justify-center h-10">
-      GET FREE SHIPPING WITH DISCOUNT CODE
+      AD HERE
     </div>
   )
   if (!data) return (
     <div className="flex flex-row justify-center h-10">
-      GET FREE SHIPPING WITH DISCOUNT CODE &nbsp; <b>STOREDOG</b>
+      AD HERE
     </div>
   ) 
 
   return (
-    <div className="flex flex-row justify-center h-10">
-      GET FREE SHIPPING WITH DISCOUNT CODE &nbsp; <b>{data}</b>
+    <div className="flex flex-row justify-center py-4">
+      <picture>
+        <source srcSet={`http://localhost:7676/banners/${data.path}`} type="image/webp" />
+        <img src={`http://localhost:7676/banners/${data.path}`} alt="Landscape picture" />
+      </picture>
     </div>
   )
 }
 
-export default Discount
+export default Ad
