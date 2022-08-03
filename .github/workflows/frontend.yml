@@ -10,7 +10,7 @@ on:
 
 defaults:
   run:
-    working-directory: frontend
+    working-directory: site
 
 jobs:
 
