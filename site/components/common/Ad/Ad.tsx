@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+// Advertisement banner
 function Ad() {
   const [data, setData] = React.useState(null)
   const [isLoading, setLoading] = React.useState(false)
