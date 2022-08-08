@@ -4,19 +4,14 @@ This is a NextJS application that relies on [Storedog - Backend](https://github.
 
 ## Local dev
 
-> To run a minimal version of Next.js Commerce you can start with the default local provider `@vercel/commerce-local` that has disabled all features (cart, auth) and use static files for the backend.
+1. Before starting the containers, you will need to define the required env vars. Run the following command to copy the env var template to the `.env.local` file:
 
+`cp .env.template ./site/.env.local`
 
-```bash
-cp ./packages/local/.env.template ./site/.env.local # copy the default 'local' config into the site folder so the app knows what backend to use
-yarn # install packages
-yarn dev # start app
-```
+Then, open the `.env.local` file and enter the values for the variables. The default values should all work except for the empty `NEXT_PUBLIC_DD_APPLICATION_KEY` and `NEXT_PUBLIC_CLIENT_TOKEN`, which are required to enable RUM.
 
-Alternatively, you can run the entire app (frontend + backend) locally via Docker.
-
-1. Start the backend by cloning the [Storedog - Backend](https://github.com/DataDog/storedog-backend) repo and running `docker-compose up`
-2. Start the frontend by cloning this repo and running the same command: `docker-compose up`
+2. Start the backend by cloning the [Storedog - Backend](https://github.com/DataDog/storedog-backend) repo and running `docker-compose up`
+3. Start the frontend by cloning this repo and running the same command: `docker-compose up`
 
 The services are linked by a shared network `storedog-backend_storedog-net` which is defined in the [Storedog - Backend](https://github.com/DataDog/storedog-backend) `docker-compose.yml` file.
 

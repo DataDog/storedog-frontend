@@ -9,15 +9,23 @@ import { ManagedUIContext } from '@components/ui/context'
 import { datadogRum } from '@datadog/browser-rum';
 
 datadogRum.init({
-    applicationId: `${process.env.NEXT_PUBLIC_DD_APPLICATION_TOKEN}`,
-    clientToken: `${process.env.NEXT_PUBLIC_DD_CLIENT_TOKEN}`,
-    site: 'datadoghq.com',
-    service:'storedog-v2',
-    version: '1.0.0',
-    sampleRate: 100,
-    premiumSampleRate: 100,
-    trackInteractions: true,
-    defaultPrivacyLevel:'mask-user-input'
+  applicationId: `${
+    process.env.NEXT_PUBLIC_DD_APPLICATION_ID ||
+    'DD_APPLICATION_ID_PLACEHOLDER'
+  }`,
+  clientToken: `${
+    process.env.NEXT_PUBLIC_DD_CLIENT_TOKEN || 'DD_CLIENT_TOKEN_PLACEHOLDER'
+  }`,
+  site: `${process.env.NEXT_PUBLIC_DD_SITE || 'datadoghq.com'}`,
+  service: `${process.env.NEXT_PUBLIC_DD_SERVICE || 'frontend'}`,
+  version: `${process.env.NEXT_PUBLIC_DD_VERSION || '1.0.0'}`,
+  env: `${process.env.NEXT_PUBLIC_DD_ENV || 'development'}`,
+  sampleRate: 100,
+  trackInteractions: true,
+  defaultPrivacyLevel: 'mask-user-input',
+  allowedTracingOrigins: [
+   "*"
+  ],
 });
     
 datadogRum.startSessionReplayRecording();

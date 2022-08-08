@@ -11,6 +11,7 @@ import ShippingWidget from '../ShippingWidget'
 import PaymentWidget from '../PaymentWidget'
 import s from './CheckoutSidebarView.module.css'
 import { useCheckoutContext } from '../context'
+import { datadogRum } from '@datadog/browser-rum';
 
 
 const onMockCheckout = async () => {
@@ -34,8 +35,28 @@ const CheckoutSidebarView: FC = () => {
   const { data: checkoutData, submit: onCheckout } = useCheckout()
   const { clearCheckoutFields } = useCheckoutContext()
 
+  const { price: subTotal } = usePrice(
+    cartData && {
+      amount: Number(cartData.subtotalPrice),
+      currencyCode: cartData.currency.code,
+    }
+  )
+  const { price: total } = usePrice(
+    cartData && {
+      amount: Number(cartData.totalPrice),
+      currencyCode: cartData.currency.code,
+    }
+  )
+
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
+
     try {
+
+      // Custom RUM action
+      datadogRum.addAction('checkout', {
+        'value': subTotal,
+      })
+
       setLoadingSubmit(true)
       event.preventDefault()
 
@@ -49,19 +70,6 @@ const CheckoutSidebarView: FC = () => {
       setLoadingSubmit(false)
     }
   }
-
-  const { price: subTotal } = usePrice(
-    cartData && {
-      amount: Number(cartData.subtotalPrice),
-      currencyCode: cartData.currency.code,
-    }
-  )
-  const { price: total } = usePrice(
-    cartData && {
-      amount: Number(cartData.totalPrice),
-      currencyCode: cartData.currency.code,
-    }
-  )
 
   return (
     <SidebarLayout
