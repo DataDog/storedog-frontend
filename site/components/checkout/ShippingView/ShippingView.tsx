@@ -61,8 +61,8 @@ const ShippingView: FC = () => {
               <span className="ml-3 text-sm">
                 Use a different shipping address
               </span>
-            </div> */}
-            <hr className="border-accent-2 my-6" />
+            </div>
+            <hr className="border-accent-2 my-6" /> */}
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>First Name</label>
