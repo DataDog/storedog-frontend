@@ -7,6 +7,9 @@ Consider including things like:
 - All the compromises made (in _performance, readability, maintainability etc._)
   to achieve the expected result if any
 
+## How to test
+
+Please describe the steps needed in order to properly test the functionality of this PR
 ## Checklist
 
 Before you move on, make sure that:
