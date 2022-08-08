@@ -52,7 +52,7 @@ const ShippingView: FC = () => {
             Shipping
           </h2>
           <div>
-            <div className="flex flex-row my-3 items-center">
+            {/* <div className="flex flex-row my-3 items-center">
               <input name="type" className={s.radio} type="radio" />
               <span className="ml-3 text-sm">Same as billing address</span>
             </div>
@@ -61,25 +61,25 @@ const ShippingView: FC = () => {
               <span className="ml-3 text-sm">
                 Use a different shipping address
               </span>
-            </div>
+            </div> */}
             <hr className="border-accent-2 my-6" />
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>First Name</label>
-                <input name="firstName" className={s.input} />
+                <input name="firstName" className={s.input} value="Nicholas" />
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Last Name</label>
-                <input name="lastName" className={s.input} />
+                <input name="lastName" className={s.input} value="Cage" />
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Company (Optional)</label>
-              <input name="company" className={s.input} />
+              <input name="company" className={s.input} value="Datadog" />
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Street and House Number</label>
-              <input name="streetNumber" className={s.input} />
+              <input name="streetNumber" className={s.input} value="32 Stenson Drive"/>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>
@@ -90,17 +90,18 @@ const ShippingView: FC = () => {
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Postal Code</label>
-                <input name="zipCode" className={s.input} />
+                <input name="zipCode" className={s.input} value="90731"/>
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>City</label>
-                <input name="city" className={s.input} />
+                <input name="city" className={s.input} value="San Francisco"/>
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Country/Region</label>
-              <select name="country" className={s.select}>
+              <select name="country" className={s.select} value="United States">
                 <option>Hong Kong</option>
+                <option>United States</option>
               </select>
             </div>
           </div>

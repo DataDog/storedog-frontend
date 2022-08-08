@@ -54,12 +54,12 @@ const PaymentMethodView: FC = () => {
           <div>
             <div className={s.fieldset}>
               <label className={s.label}>Cardholder Name</label>
-              <input name="cardHolder" className={s.input} />
+              <input name="cardHolder" className={s.input} value="Nicholas Cage" />
             </div>
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-7')}>
                 <label className={s.label}>Card Number</label>
-                <input name="cardNumber" className={s.input} />
+                <input name="cardNumber" className={s.input} value="1234 4567 9832 3912" />
               </div>
               <div className={cn(s.fieldset, 'col-span-3')}>
                 <label className={s.label}>Expires</label>
@@ -67,31 +67,32 @@ const PaymentMethodView: FC = () => {
                   name="cardExpireDate"
                   className={s.input}
                   placeholder="MM/YY"
+                  value="03/28"
                 />
               </div>
               <div className={cn(s.fieldset, 'col-span-2')}>
                 <label className={s.label}>CVC</label>
-                <input name="cardCvc" className={s.input} />
+                <input name="cardCvc" className={s.input} value="123" />
               </div>
             </div>
             <hr className="border-accent-2 my-6" />
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>First Name</label>
-                <input name="firstName" className={s.input} />
+                <input name="firstName" className={s.input} value="Nicholas" />
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Last Name</label>
-                <input name="lastName" className={s.input} />
+                <input name="lastName" className={s.input} value="Cage" />
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Company (Optional)</label>
-              <input name="company" className={s.input} />
+              <input name="company" className={s.input} value="Datadog"/>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Street and House Number</label>
-              <input name="streetNumber" className={s.input} />
+              <input name="streetNumber" className={s.input} value="32 Stenson Drive"/>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>
@@ -102,17 +103,18 @@ const PaymentMethodView: FC = () => {
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Postal Code</label>
-                <input name="zipCode" className={s.input} />
+                <input name="zipCode" className={s.input} value="90731" />
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>City</label>
-                <input name="city" className={s.input} />
+                <input name="city" className={s.input} value="San Francisco" />
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Country/Region</label>
-              <select name="country" className={s.select}>
+              <select name="country" className={s.select} value="United States">
                 <option>Hong Kong</option>
+                <option>United States</option>
               </select>
             </div>
           </div>
