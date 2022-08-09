@@ -54,12 +54,12 @@ const PaymentMethodView: FC = () => {
           <div>
             <div className={s.fieldset}>
               <label className={s.label}>Cardholder Name</label>
-              <input name="cardHolder" className={s.input} value="Nicholas Cage" />
+              <input name="cardHolder" className={s.input} defaultValue="Jade Angelou" />
             </div>
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-7')}>
                 <label className={s.label}>Card Number</label>
-                <input name="cardNumber" className={s.input} value="1234 4567 9832 3912" />
+                <input name="cardNumber" className={s.input} defaultValue="1234 4567 9832 3912" />
               </div>
               <div className={cn(s.fieldset, 'col-span-3')}>
                 <label className={s.label}>Expires</label>
@@ -67,32 +67,32 @@ const PaymentMethodView: FC = () => {
                   name="cardExpireDate"
                   className={s.input}
                   placeholder="MM/YY"
-                  value="03/28"
+                  defaultValue="03/28"
                 />
               </div>
               <div className={cn(s.fieldset, 'col-span-2')}>
                 <label className={s.label}>CVC</label>
-                <input name="cardCvc" className={s.input} value="123" />
+                <input name="cardCvc" className={s.input} defaultValue="123" />
               </div>
             </div>
             <hr className="border-accent-2 my-6" />
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>First Name</label>
-                <input name="firstName" className={s.input} value="Nicholas" />
+                <input name="firstName" className={s.input} defaultValue="Jade" />
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Last Name</label>
-                <input name="lastName" className={s.input} value="Cage" />
+                <input name="lastName" className={s.input} defaultValue="Angelou" />
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Company (Optional)</label>
-              <input name="company" className={s.input} value="Datadog"/>
+              <input name="company" className={s.input} defaultValue="Datadog"/>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Street and House Number</label>
-              <input name="streetNumber" className={s.input} value="32 Stenson Drive"/>
+              <input name="streetNumber" className={s.input} defaultValue="32 Stenson Drive"/>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>
@@ -103,16 +103,16 @@ const PaymentMethodView: FC = () => {
             <div className="grid gap-3 grid-flow-row grid-cols-12">
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>Postal Code</label>
-                <input name="zipCode" className={s.input} value="90731" />
+                <input name="zipCode" className={s.input} defaultValue="90731" />
               </div>
               <div className={cn(s.fieldset, 'col-span-6')}>
                 <label className={s.label}>City</label>
-                <input name="city" className={s.input} value="San Francisco" />
+                <input name="city" className={s.input} defaultValue="San Francisco" />
               </div>
             </div>
             <div className={s.fieldset}>
               <label className={s.label}>Country/Region</label>
-              <select name="country" className={s.select} value="United States">
+              <select name="country" className={s.select} defaultValue="United States">
                 <option>Hong Kong</option>
                 <option>United States</option>
               </select>
