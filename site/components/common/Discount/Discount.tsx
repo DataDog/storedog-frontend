@@ -1,23 +1,36 @@
 import * as React from 'react';
 
-function Discount() {
-  const [data, setData] = React.useState(null)
-  const [isLoading, setLoading] = React.useState(false)
+export interface DiscountDataResults {
+    data: object | null
+    path: string
+}
 
-  function getRandomArbitrary(min, max) {
+function Discount() {
+  const [data, setData] = React.useState<DiscountDataResults | null>(null)
+  const [isLoading, setLoading] = React.useState(false)
+  const discountPath = `${process.env.NEXT_PUBLIC_DISCOUNT_ROUTE}:${process.env.NEXT_PUBLIC_DISCOUNT_PORT}`
+
+  function getRandomArbitrary(min: number, max:number) {
     return Math.floor(Math.random() * (max - min) + min);
   }
 
+  function fetchDiscount() {
+      fetch(`${discountPath}/discount`,)
+          .then((res) => res.json())
+          .then((data) => {
+              const index = getRandomArbitrary(0,data.length);
+              setData(data[index])
+          })
+          .catch(e => console.error(e.message))
+          .finally(() => {
+              setLoading(false)
+          })
+  }
+
   React.useEffect(() => {
-    setLoading(true)
-    fetch('http://localhost:2814/discount')
-      .then((res) => res.json())
-      .then((data) => {
-        const index = getRandomArbitrary(0,data.length);
-        setData(data[index]["code"])
-        setLoading(false)
-      })
-  }, [])
+      setLoading(true)
+      fetchDiscount()
+  }, [data?.path])
 
   if (isLoading) return (
     <div className="flex flex-row justify-center h-10">
@@ -32,7 +45,7 @@ function Discount() {
 
   return (
     <div className="flex flex-row justify-center h-10">
-      GET FREE SHIPPING WITH DISCOUNT CODE &nbsp; <b>{data}</b>
+    GET FREE SHIPPING WITH DISCOUNT CODE &nbsp; <b>{data}</b>
     </div>
   )
 }

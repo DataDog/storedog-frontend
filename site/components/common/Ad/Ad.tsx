@@ -8,13 +8,14 @@ export interface AdDataResults {
 function Ad() {
   const [data, setData] = React.useState<AdDataResults | null>(null)
   const [isLoading, setLoading] = React.useState(false)
+  const adsPath = `${process.env.NEXT_PUBLIC_ADS_ROUTE}:${process.env.NEXT_PUBLIC_ADS_PORT}`
 
   function getRandomArbitrary(min: number, max:number) {
     return Math.floor(Math.random() * (max - min) + min);
   }
 
   function fetchAd() {
-      fetch('http://localhost:7676/ads')
+      fetch(`${adsPath}/ads`,)
           .then((res) => res.json())
           .then((data) => {
               const index = getRandomArbitrary(0,data.length);
@@ -45,8 +46,8 @@ function Ad() {
   return (
     <div className="flex flex-row justify-center py-4">
       <picture>
-        <source srcSet={`http://localhost:7676/banners/${data.path}`} type="image/webp" />
-        <img src={`http://localhost:7676/banners/${data.path}`} alt="Landscape picture" />
+        <source srcSet={`${adsPath}/banners/${data.path}`} type="image/webp" />
+        <img src={`${adsPath}/banners/${data.path}`} alt="Landscape picture" />
       </picture>
     </div>
   )
