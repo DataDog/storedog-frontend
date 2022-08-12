@@ -15,7 +15,7 @@ function Ad() {
   }
 
   function fetchAd() {
-      fetch(`${adsPath}/ads`,)
+      fetch(`${adsPath}/ads`)
           .then((res) => res.json())
           .then((data) => {
               const index = getRandomArbitrary(0,data.length);
