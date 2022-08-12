@@ -30,7 +30,8 @@ function Ad() {
   React.useEffect(() => {
       setLoading(true)
       fetchAd()
-  }, [data?.path])
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   if (isLoading) return (
     <div className="flex flex-row justify-center h-10">
