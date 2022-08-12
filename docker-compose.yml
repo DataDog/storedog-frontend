@@ -10,6 +10,18 @@ services:
       - 3000:3000
     networks:
       - storedog-backend_storedog-net
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+    labels:
+      com.datadoghq.ad.logs: '[{"source": "nginx", "service": "nginx"}]'
+    networks:
+      - storedog-backend_storedog-net
 
 networks:
   storedog-backend_storedog-net:
