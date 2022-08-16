@@ -26,6 +26,10 @@ The services are linked by a shared network `storedog-backend_storedog-net` whic
 
 ## Configuration
 
+### Enable RUM
+
+To enable RUM, generate a new RUM application in DD and then set the `NEXT_PUBLIC_DD_APPLICATION_KEY` and `NEXT_PUBLIC_CLIENT_TOKEN` values in `./site/.env.local`. Then start the app, click around the site, and you should start to see RUM metrics populating in DD.
+
 ### Features
 
 Every provider defines the features that it supports under `packages/{provider}/src/commerce.config.json`
