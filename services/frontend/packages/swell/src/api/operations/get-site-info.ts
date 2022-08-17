@@ -1,6 +1,6 @@
 import getCategories from '../../utils/get-categories'
 import getVendors, { Brands } from '../../utils/get-vendors'
-import { Provider, SwellConfig } from '../'
+import { Provider, SwellConfig } from '..'
 import type { OperationContext } from '@vercel/commerce/api/operations'
 import type { Category } from '@vercel/commerce/types/site'
 

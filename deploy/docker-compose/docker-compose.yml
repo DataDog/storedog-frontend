@@ -2,18 +2,18 @@ version: '3.7'
 services:
   frontend:
     build:
-      context: ./services/frontend
+      context: .
     command: yarn dev
     volumes:
-      - "./services/frontend/site:/storedog-app/site"
+      - "./site:/storedog-app/site"
     ports:
       - 3000:3000
     networks:
       - storedog-backend_storedog-net
   nginx:
-    build:
-      context: ./services/nginx
     restart: always
+    build:
+      context: ./packages/nginx
     ports:
       - "80:80"
     depends_on:

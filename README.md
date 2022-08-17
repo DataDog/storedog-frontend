@@ -6,7 +6,7 @@ This is a NextJS application that relies on [Storedog - Backend](https://github.
 
 1. Before starting the containers, you will need to define the required env vars. Run the following command to copy the env var template to the `.env.local` file:
 
-`cp .env.template ./site/.env.local`
+`cp .env.template ./services/frontend/site/.env.local`
 
 Then, open the `.env.local` file and enter the values for the variables. The default values should all work except for the empty `NEXT_PUBLIC_DD_APPLICATION_KEY` and `NEXT_PUBLIC_CLIENT_TOKEN`, which are required to enable RUM.
 
