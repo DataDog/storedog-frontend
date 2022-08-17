@@ -1,19 +1,17 @@
 version: '3.7'
 services:
   frontend:
-    build:
-      context: .
+    image: public.ecr.aws/x2b9z2t7/storedog/frontend:1.0.1
     command: yarn dev
     volumes:
-      - "./site:/storedog-app/site"
+      - "../../services/frontend/site:/storedog-app/site"
     ports:
       - 3000:3000
     networks:
       - storedog-backend_storedog-net
   nginx:
+    image: public.ecr.aws/x2b9z2t7/storedog/nginx:1.0.1
     restart: always
-    build:
-      context: ./packages/nginx
     ports:
       - "80:80"
     depends_on:
