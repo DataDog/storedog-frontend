@@ -10,6 +10,8 @@ services:
       - 3000:3000
     networks:
       - storedog-backend_storedog-net
+    environment:
+      - "DD_CLIENT_TOKEN=${DD_CLIENT_TOKEN}"
   nginx:
     build:
       context: ./services/nginx

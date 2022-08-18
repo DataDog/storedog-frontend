@@ -17,6 +17,9 @@ module.exports = withCommerceConfig({
     locales: ['en-US', 'es'],
     defaultLocale: 'en-US',
   },
+  env: {
+    NEXT_PUBLIC_DD_CLIENT_TOKEN: process.env.DD_CLIENT_TOKEN
+  }  ,
   rewrites() {
     return [
       (isBC || isShopify || isSwell || isVendure || isSaleor) && {
