@@ -18,7 +18,8 @@ module.exports = withCommerceConfig({
     defaultLocale: 'en-US',
   },
   env: {
-    NEXT_PUBLIC_DD_CLIENT_TOKEN: process.env.DD_CLIENT_TOKEN
+    NEXT_PUBLIC_DD_APPLICATION_ID: process.env.NEXT_PUBLIC_DD_APPLICATION_ID,
+    NEXT_PUBLIC_DD_CLIENT_TOKEN: process.env.NEXT_PUBLIC_DD_CLIENT_TOKEN,
   }  ,
   rewrites() {
     return [
