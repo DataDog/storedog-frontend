@@ -4,20 +4,22 @@ This is a NextJS application that relies on [Storedog - Backend](https://github.
 
 ## Local dev
 
-1. Before starting the containers, you will need to define the required env vars. Run the following command to copy the env var template to the `.env.local` file:
+**1.** Before starting the containers, you will need to define the required env vars. Run the following command to copy the env var template to the `.env.local` file:
 
 `cp .env.template ./services/frontend/site/.env.local`
 
 Then, open the `.env.local` file and enter the values for the variables. The default values should all work except for the empty `NEXT_PUBLIC_DD_APPLICATION_KEY` and `NEXT_PUBLIC_CLIENT_TOKEN`, which are required to enable RUM.
 
-2. Start the backend by following the instructions [here](https://github.com/DataDog/storedog-backend#local-development) 
+**2.** Start the backend by following the instructions [here](https://github.com/DataDog/storedog-backend#local-development) 
 
-3a. To start the fronted using the local build context, run:
+**3a.** To start the fronted using the local build context, run:
 `docker-compose up`
 
-3b. To start the frontend using the published images in ECR, run:
+**3b.** To start the frontend using the published images in ECR, run:
 `docker-compose -f ./deploy/docker-compose/docker-compose.yml up`
 
+
+### Note
 The services are linked by a shared network `storedog-backend_storedog-net` which is defined in the [Storedog - Backend](https://github.com/DataDog/storedog-backend) `docker-compose.yml` file.
 
 > If you encounter any problems while installing and running for the first time, please see the Troubleshoot section
