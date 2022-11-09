@@ -1,4 +1,4 @@
-FROM node:lts as builder
+FROM node:16.18.0 as builder
 WORKDIR /storedog-app
 COPY . .
 EXPOSE 3000
