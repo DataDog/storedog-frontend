@@ -122,7 +122,7 @@ const Navbar: FC<NavbarProps> = ({links}) => {
                     </div>
                 }
                 {!showEmailInput && process.env.NEXT_PUBLIC_XSS_VULN &&
-                    <p className="font-bold">Thank you for singing up {userEmail}!</p>
+                    <p className="font-bold">Thank you for signing up {userEmail}!</p>
                 }
             </Container>
         </NavbarRoot>
