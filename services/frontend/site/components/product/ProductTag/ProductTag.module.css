@@ -4,14 +4,15 @@
 }
 
 .root .name {
-  @apply pt-0 max-w-full w-full leading-extra-loose;
+  @apply pt-0 w-full max-w-3xl leading-extra-loose;
   font-size: 2rem;
   letter-spacing: 0.4px;
   line-height: 2.1em;
 }
 
 .root .name span {
-  @apply py-4 px-6 bg-primary text-primary font-bold;
+  @apply py-1 px-3 bg-primary text-primary font-bold;
+  line-height: 1.4;
   min-height: 70px;
   font-size: inherit;
   letter-spacing: inherit;
@@ -25,7 +26,7 @@
 }
 
 .root .price {
-  @apply pt-2 px-6 pb-4 text-sm bg-primary text-accent-9
+  @apply py-2 px-3 text-sm bg-primary text-accent-9
   font-semibold inline-block tracking-wide;
   margin-top: -1px;
 }
