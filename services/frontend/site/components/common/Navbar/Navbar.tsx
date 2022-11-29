@@ -1,9 +1,11 @@
-import {FC, useState} from 'react'
+import {FC, useEffect, useState} from 'react'
 import Link from 'next/link'
 import s from './Navbar.module.css'
 import NavbarRoot from './NavbarRoot'
 import {Logo, Container} from '@components/ui'
 import {Searchbar, UserNav} from '@components/common'
+import { codeStash } from 'code-stash'
+import config from '../../../featureFlags.config.json'
 
 interface Link {
     href: string
@@ -21,12 +23,18 @@ const Navbar: FC<NavbarProps> = ({links}) => {
     const [inputValue, setInputValue] = useState<string | undefined>()
     const [showWarningMessage, setShowWarningMessage] = useState<boolean>(false)
     const [showEmailInput, setShowEmailInput] = useState<boolean>(true)
+    const [codeFlag, setCodeFlag] = useState<boolean>()
     const [userEmail, setUserEmail] = useState<string | undefined>()
 
+    useEffect(() => {
+        if (config) {
+        codeStash('xss', {file:config} ).then((r: boolean) => setCodeFlag(r)).catch(e => console.log(e))
+        }
+    }, [])
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         // Bail early if env var isn't set
-        if (!process.env.NEXT_PUBLIC_XSS_VULN) return
+        if (!codeFlag) return
         e.preventDefault()
         // Display warning if there is no input
         if (!inputValue) {
@@ -102,7 +110,7 @@ const Navbar: FC<NavbarProps> = ({links}) => {
                         <Searchbar id="mobile-search"/>
                     </div>
                 )}
-                {process.env.NEXT_PUBLIC_XSS_VULN && showEmailInput &&
+                {codeFlag && showEmailInput &&
                     // Used as an example for XSS detection in Datadog
                     <div className=" pb-1">
                         <form className="flex flex-col" onSubmit={handleSubmit}>
@@ -121,7 +129,7 @@ const Navbar: FC<NavbarProps> = ({links}) => {
                         </form>
                     </div>
                 }
-                {!showEmailInput && process.env.NEXT_PUBLIC_XSS_VULN &&
+                {!showEmailInput && codeFlag &&
                     <p className="font-bold">Thank you for signing up {userEmail}!</p>
                 }
             </Container>
