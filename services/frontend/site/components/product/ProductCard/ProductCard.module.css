@@ -11,33 +11,10 @@
   }
 
   & .header .name span,
+  & .header .name .link,
   & .header .price,
   & .wishlistButton {
     @apply bg-secondary text-secondary;
-  }
-
-  &:nth-child(6n + 1) .header .name span,
-  &:nth-child(6n + 1) .header .price,
-  &:nth-child(6n + 1) .wishlistButton {
-    @apply bg-violet text-white;
-  }
-
-  &:nth-child(6n + 5) .header .name span,
-  &:nth-child(6n + 5) .header .price,
-  &:nth-child(6n + 5) .wishlistButton {
-    @apply bg-blue text-white;
-  }
-
-  &:nth-child(6n + 3) .header .name span,
-  &:nth-child(6n + 3) .header .price,
-  &:nth-child(6n + 3) .wishlistButton {
-    @apply bg-pink text-white;
-  }
-
-  &:nth-child(6n + 6) .header .name span,
-  &:nth-child(6n + 6) .header .price,
-  &:nth-child(6n + 6) .wishlistButton {
-    @apply bg-cyan text-white;
   }
 }
 
@@ -53,8 +30,9 @@
   letter-spacing: 0.4px;
 }
 
-.header .name span {
-  @apply py-4 px-6 bg-primary text-primary font-bold
+.header .name span,
+.header .name .link {
+  @apply py-1 px-3 bg-primary text-primary font-bold
   transition-colors ease-in-out duration-500;
   font-size: inherit;
   letter-spacing: inherit;
@@ -63,7 +41,7 @@
 }
 
 .header .price {
-  @apply pt-2 px-6 pb-4 text-sm bg-primary text-accent-9
+  @apply py-1 px-3 text-sm bg-primary text-accent-9
   font-semibold inline-block tracking-wide
   transition-colors ease-in-out duration-500;
 }
@@ -87,7 +65,7 @@
 
 /* Variant Simple */
 .simple .header .name {
-  @apply pt-2 text-lg leading-10 -mt-1;
+  @apply text-lg mt-0;
 }
 
 .simple .header .price {
@@ -105,7 +83,7 @@
 }
 
 .slim span {
-  @apply bg-accent-9 text-accent-0 inline-block p-3
+  @apply bg-gray-900/80 text-accent-0 inline-block p-3
   font-bold text-xl break-words;
 }
 

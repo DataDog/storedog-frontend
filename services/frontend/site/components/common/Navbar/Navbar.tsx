@@ -79,15 +79,17 @@ const Navbar: FC<NavbarProps> = ({links}) => {
         <NavbarRoot>
             <Container clean className="mx-auto max-w-8xl px-6">
                 <div className={s.nav}>
-                    <div className="flex items-center flex-1">
-                        <Link href="/">
-                            <a className={s.logo} aria-label="Logo">
-                                <Logo/>
+                    <div className='flex items-center flex-1'>
+                        <Link href='/'>
+                            <a className={s.logo} aria-label='Logo'>
+                                <Logo />
                             </a>
                         </Link>
-                        <nav className={s.navMenu}>
-                            <Link href="/search">
-                                <a className={s.link}>All</a>
+                        <nav className={s.navMenu} id='main-navbar'>
+                            <Link href='/search'>
+                                <a className={s.link} id='all-products-link'>
+                                    All Products
+                                </a>
                             </Link>
                             {links?.map((l) => (
                                 <Link href={l.href} key={l.href}>
@@ -97,17 +99,17 @@ const Navbar: FC<NavbarProps> = ({links}) => {
                         </nav>
                     </div>
                     {process.env.COMMERCE_SEARCH_ENABLED && (
-                        <div className="justify-center flex-1 hidden lg:flex">
-                            <Searchbar/>
+                        <div className='justify-center flex-1 hidden lg:flex'>
+                            <Searchbar />
                         </div>
                     )}
-                    <div className="flex items-center justify-end flex-1 space-x-8">
-                        <UserNav/>
+                    <div className='flex items-center justify-end flex-1 space-x-8'>
+                        <UserNav />
                     </div>
                 </div>
                 {process.env.COMMERCE_SEARCH_ENABLED && (
-                    <div className="flex pb-4 lg:px-6 lg:hidden">
-                        <Searchbar id="mobile-search"/>
+                    <div className='flex pb-4 lg:px-6 lg:hidden'>
+                        <Searchbar id='mobile-search' />
                     </div>
                 )}
                 {codeFlag && showEmailInput &&
@@ -137,4 +139,4 @@ const Navbar: FC<NavbarProps> = ({links}) => {
     )
 }
 
-export default Navbar
+export default Navbar;

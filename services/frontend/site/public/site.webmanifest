@@ -1,7 +1,7 @@
 {
-  "name": "Next.js Commerce",
-  "short_name": "Next.js Commerce",
-  "description": "Next.js Commerce -> https://www.nextjs.org/commerce",
+  "name": "Storedog ecommerce",
+  "short_name": "Storedog",
+  "description": "Storedog, an ecommerce app used for training at https://learn.datadoghq.com",
   "display": "standalone",
   "start_url": "/",
   "theme_color": "#fff",

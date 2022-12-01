@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface DiscountCodeResults {
-    data: string | null
+  data: string | null
 }
 
 function Discount() {
@@ -14,15 +14,15 @@ function Discount() {
   }
 
   function fetchDiscountCode() {
-      fetch(`${discountPath}/discount`)
-          .then((res) => res.json())
-          .then((data) => {
-              const index = getRandomArbitrary(0,data.length);
-              setData(data[index]["code"])
-          })
-          .catch(e => {console.error(e.message)})
-          .finally(() => { setLoading(false)} )
-    }
+    fetch(`${discountPath}/discount`)
+      .then((res) => res.json())
+      .then((data) => {
+        const index = getRandomArbitrary(0, data.length);
+        setData(data[index]["code"])
+      })
+      .catch(e => { console.error(e.message) })
+      .finally(() => { setLoading(false) })
+  }
 
   React.useEffect(() => {
     setLoading(true)
@@ -30,22 +30,16 @@ function Discount() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (isLoading) return (
-    <div className="flex flex-row justify-center h-10">
-      GET FREE SHIPPING WITH DISCOUNT CODE
-    </div>
-  )
-  if (!data) return (
-    <div className="flex flex-row justify-center h-10">
-      GET FREE SHIPPING WITH DISCOUNT CODE &nbsp; <b>STOREDOG</b>
+
+  return (
+    <div className="flex flex-row justify-center py-4 bg-primary-2 text-white">
+      {
+        isLoading ? (<span>GET FREE SHIPPING WITH DISCOUNT CODE</span>) :
+          !data ? (<span>GET FREE SHIPPING WITH DISCOUNT CODE <strong>STOREDOG</strong></span>) : (<span>GET FREE SHIPPING WITH DISCOUNT CODE &nbsp; <strong>{data}</strong></span>)
+      }
     </div>
   )
 
-  return (
-    <div className="flex flex-row justify-center h-10">
-    GET FREE SHIPPING WITH DISCOUNT CODE &nbsp; <b>{data}</b>
-    </div>
-  )
 }
 
 export default Discount

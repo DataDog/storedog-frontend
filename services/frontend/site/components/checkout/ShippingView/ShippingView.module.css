@@ -8,7 +8,7 @@
 
 .fieldset .input,
 .fieldset .select {
-  @apply p-2 border border-accent-2 w-full text-sm font-normal;
+  @apply p-2 border border-accent-8 w-full text-sm font-normal bg-primary;
 }
 
 .fieldset .input:focus,
